@@ -1,0 +1,7 @@
+{
+  "name": "docOkey",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
