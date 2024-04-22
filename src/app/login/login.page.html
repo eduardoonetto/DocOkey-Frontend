@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <b style="color:#4BC8CD;text-align: center;">Docs</b>&#160;<b style="color:#2dd36f;text-align: center;">Okay</b>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <br>
+  <div class="logo-container">
+    <!-- Aquí puedes agregar tu logo -->
+    <img src="assets/last-will.gif" alt="Logo" width="100vh" class="logo">
+  </div>
+
+  <ion-item>
+    <ion-label position="floating">RUT</ion-label>
+    <ion-input type="text" [(ngModel)]="rut"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="secondary" (click)="login()">Ingresar</ion-button>
+  <ion-button expand="block" color="success" (click)="register()">Registrarse</ion-button>
+</ion-content>
