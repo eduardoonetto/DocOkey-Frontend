@@ -16,17 +16,17 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  login(user_rut: string, user_pin: string): Observable<RootObject> {
+  login(user_rut: string, user_password: string): Observable<RootObject> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-api-key': `${apiKey}`
+      'Content-Type': 'application/json'
+      //,'x-api-key': `${apiKey}`
     });
 
     return this.http.post<RootObject>(
       `${URL}/auth/login`,
       {
-        "user_rut": "",
-        "user_pin": ""
+        "user_rut": user_rut,
+        "user_password": user_password
       },
       { headers }
     );

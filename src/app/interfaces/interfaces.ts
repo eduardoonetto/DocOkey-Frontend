@@ -1,10 +1,10 @@
 export interface RootObject {
-  status: number;
-  message: string;
-  session_id: string;
-  result: Result;
+  id: number
+  username: string
+  email: string
+  password: string
+  session_id: string
 }
-
 export interface Result {
   user_name?: string;
   user_rut?: string;
