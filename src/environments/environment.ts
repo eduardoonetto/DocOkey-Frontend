@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  url: 'https://5.dec.cl/api/v10',
-  apiKey: 'fe3acc3649a7d524fcfe31987bd6194899389d1c'
+  url: '',
+  apiKey: ''
 };
 
 /*
