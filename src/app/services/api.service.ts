@@ -1,16 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { RootObject } from '../interfaces/interfaces';
+
+const URL = environment.url;
+const apiKey = environment.apiKey;
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class PostsService {
+
+  paginaPosts = 0;
 
   constructor(private http: HttpClient) { }
 
-  obtenerDatos(): Observable<any> {
-    return this.http.get<any>('URL_DE_TU_API');
-  }
+  login(user_rut: string, user_pin: string): Observable<RootObject> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-api-key': `${apiKey}`
+    });
 
+    return this.http.post<RootObject>(
+      `${URL}/auth/login`,
+      {
+        "user_rut": "",
+        "user_pin": ""
+      },
+      { headers }
+    );
+  }
 }
