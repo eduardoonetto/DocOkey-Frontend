@@ -1,13 +1,12 @@
-export interface RootObject {
+export interface Login {
   id: number
   username: string
   email: string
   password: string
   session_id: string
 }
-export interface Result {
-  user_name?: string;
-  user_rut?: string;
-  audit?: string;
-  institutions?: string[];
+
+export interface Register {
+  msg: string
+  status: string
 }
