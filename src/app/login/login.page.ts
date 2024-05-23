@@ -37,6 +37,14 @@ export class LoginPage implements OnInit {
       this.postsService.login(this.rut, this.password).subscribe(data => {
         console.log(data);
         if(data.id != 0 || data != undefined){
+          //Guardar en localStorage:
+          localStorage.setItem("id", data.id.toString());
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("rut", data.rut);
+          localStorage.setItem("email", data.email);
+          localStorage.setItem("session_id", data.session_id);
+          //Institucion Inicial:
+          localStorage.setItem("institucion", "Personal");
           this.router.navigate(['/home']);
         }else{
           this.mostrarToast("Credenciales incorrectas");
