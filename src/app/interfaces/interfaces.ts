@@ -4,6 +4,7 @@ export interface Login {
   username: string
   email: string
   session_id: string
+  status ?: string
 }
 
 export interface Register {
@@ -15,4 +16,19 @@ export interface Register {
 export interface roles_by_rut_admin {
   instituciones: string[]
   status ?: number
+}
+
+export type Documents = Document[]
+
+export interface Document {
+  id: number
+  nombre: string
+  institucion: string
+}
+
+export interface SignDocument {
+  audit: string
+  msg: string
+  status: string
+  document_id: number
 }

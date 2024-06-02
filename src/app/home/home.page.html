@@ -6,67 +6,52 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-searchbar animated="true" placeholder="Buscar Documento" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
   <ion-list [inset]="false">
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let documento of documents">
       <ion-item [button]="true" detail="true" detail-icon="arrow-back-circle-outline">
-          <ion-icon name="document-attach-outline"  style="font-size: 44px;color:#3dc2ff" slot="start"></ion-icon>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="Avatar" [src]="documento.logo" />
+        </ion-avatar>
+        
         <ion-label>
-          <h3>CONTRATO SOVOS - ANEXO</h3>
-          <p>Codigo: XA093SDAFD29348</p>
-          <p>Inst: Sovos</p>
+          <h3>{{documento.nombre}}</h3>
+          <p>Codigo: {{documento.id}}</p>
+          <p>Inst: {{documento.institucion}} - {{documento.role}}</p>
         </ion-label>
       </ion-item>
       <ion-item-options slot="end">
         <ion-item-option color="secondary">
-          <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+          <ion-icon slot="icon-only" id="present-alert" name="eye-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="success">
+        <ion-item-option color="success"  (click)="presentAlert('Firmar Documento', 1, documento.id, documento.role)">
           <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger">
-          <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-      <ion-item [button]="true" detail="true" detail-icon="arrow-back-circle-outline">
-          <ion-icon name="document-attach-outline"  style="font-size: 44px;color:#3dc2ff" slot="start"></ion-icon>
-        <ion-label>
-          <h3>CONTRATO SOVOS - ANEXO</h3>
-          <p>Codigo: XA093SDAFD29348</p>
-          <p>Inst: Sovos</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options slot="end">
-        <ion-item-option color="secondary">
-          <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
-        </ion-item-option>
-        <ion-item-option color="success">
-          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
-        </ion-item-option>
-        <ion-item-option color="danger">
+        <ion-item-option color="danger"  (click)="presentAlert('Rechazar Documento', 2, documento.id, documento.role)">
           <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
 </ion-list>
+
 </ion-content>
-  <ion-content>
-<ion-tabs>
-  <ion-tab-bar slot="pending">
-    <ion-tab-button tab="home" routerLink="/home" routerLinkActive="selected">
-      <ion-icon name="create-outline"></ion-icon>
-      Pendientes
-    </ion-tab-button>
-    <ion-tab-button tab="signed" routerLink="/signed" routerLinkActive="selected">
-      <ion-icon name="checkmark-circle-outline"></ion-icon>
-      Firmados
-    </ion-tab-button>
-    <ion-tab-button tab="list-institution" routerLink="/list-institution" routerLinkActive="selected">
-      <ion-icon name="add-circle-outline"></ion-icon>
-      Crear Documento
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
-</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="pending">
+        <ion-tab-button tab="home" routerLink="/home" routerLinkActive="selected">
+          <ion-icon name="create-outline"></ion-icon>
+          Pendientes
+        </ion-tab-button>
+        <ion-tab-button tab="signed" routerLink="/signed" routerLinkActive="selected">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          Firmados
+        </ion-tab-button>
+        <ion-tab-button tab="list-institution" routerLink="/list-institution" routerLinkActive="selected">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          Crear Documento
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+

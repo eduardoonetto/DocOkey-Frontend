@@ -20,7 +20,7 @@ export class ListInstitutionPage implements OnInit {
     if(this.institution_selected != ""){
       localStorage.setItem("institucion", this.institution_selected);
       console.log(this.institution_selected);
-      this.router.navigate(['/create-document'], {state: {institution: this.institution_selected}});
+      this.router.navigate(['/create-document']);
     }else{
       this.mostrarToast("Seleccione una institucion");
     }
@@ -33,9 +33,7 @@ export class ListInstitutionPage implements OnInit {
       
       if(data.instituciones.length > 0 || data.status == 200){
         for (let i = 0; i < data.instituciones.length; i++) {
-          const element = data.instituciones[i];
-          this.institutions.push(element);
-          console.log(element);
+          this.institutions.push(data.instituciones[i]);
         }
       }else{
         this.mostrarToast("No se encontraron instituciones");
@@ -56,7 +54,7 @@ export class ListInstitutionPage implements OnInit {
     const toast = await this.toastController.create({
       message: mensaje,
       duration: 2000, // Duración del Toast en milisegundos
-      position: 'bottom', // Posición del Toast: 'top', 'middle', 'bottom'
+      position: 'top', // Posición del Toast: 'top', 'middle', 'bottom'
       icon: "alert-circle",
       color: "danger"
     });

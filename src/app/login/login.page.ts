@@ -35,10 +35,8 @@ export class LoginPage implements OnInit {
     console.log(this.password);
     if(this.rut != "" && this.password != ""){  
       this.postsService.login(this.rut, this.password).subscribe(data => {
-        console.log(data);
-        if(data.id != 0 || data != undefined){
+        if(data.status != "ERROR"){
           //Guardar en localStorage:
-          localStorage.setItem("id", data.id.toString());
           localStorage.setItem("username", data.username);
           localStorage.setItem("rut", data.rut);
           localStorage.setItem("email", data.email);
@@ -59,7 +57,7 @@ export class LoginPage implements OnInit {
     const toast = await this.toastController.create({
       message: mensaje,
       duration: 2000, // Duración del Toast en milisegundos
-      position: 'bottom' // Posición del Toast: 'top', 'middle', 'bottom'
+      position: 'top' // Posición del Toast: 'top', 'middle', 'bottom'
     });
     toast.present();
   }
