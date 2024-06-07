@@ -1,0 +1,44 @@
+<ion-header class="custom-title">
+  <ion-toolbar>
+    <ion-title>
+      <b style="color:#3dc2ff;text-align: center;">Docs</b>&#160;<b style="color:rgb(101, 199, 110);text-align: center;">Okay</b>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Vista -->
+  <p style="text-align:center;">Ver Documento</p>
+  <img src="data:image/png;base64,{{documents.thumbnail}}" alt="Logo" style="display: block;margin-left: auto;margin-right: auto;width: 40%;" (click)="downloadPDF()">
+  <p style="text-align:center;">Firmantes</p>
+  <ion-grid class="ion-text-center">
+    <ion-row class="table">
+      <ion-col size="6"><strong>Firmante</strong></ion-col>
+      <ion-col size="6"><strong>Estado de Firma</strong></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let signer of signers">
+      <ion-col size="6"> {{signer.signer_name}}</ion-col>
+      <ion-col size="6"> {{signer.tipo_accion}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="pending">
+        <ion-tab-button tab="home" routerLink="/home" routerLinkActive="selected">
+          <ion-icon name="create-outline"></ion-icon>
+          Pendientes
+        </ion-tab-button>
+        <ion-tab-button tab="signed" routerLink="/signed" routerLinkActive="selected">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          Firmados
+        </ion-tab-button>
+        <ion-tab-button tab="list-institution" routerLink="/list-institution" routerLinkActive="selected">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          Crear Documento
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+

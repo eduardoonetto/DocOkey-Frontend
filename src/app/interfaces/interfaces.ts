@@ -32,3 +32,29 @@ export interface SignDocument {
   status: string
   document_id: number
 }
+
+
+export interface Metadata {
+  id: number
+  status: string
+  nombre: string
+  thumbnail: string
+  documento_b64: string
+  institucion: string
+  logo: string
+  signers: Signer[]
+}
+
+export interface Signer {
+  id: number
+  signer_rut: string
+  signer_role: string
+  signer_institucion: string
+  signer_name: string
+  signer_email: string
+  signer_type: string
+  audit?: string
+  fecha_firma?: string
+  habilitado: number
+  tipo_accion: number
+}

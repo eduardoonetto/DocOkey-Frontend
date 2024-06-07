@@ -21,7 +21,7 @@
       </ion-item>
       <ion-item-options slot="end">
         <ion-item-option color="secondary">
-          <ion-icon slot="icon-only" id="present-alert" name="eye-outline"></ion-icon>
+          <ion-icon slot="icon-only"  (click)="detail(documento.id)" id="present-alert" name="eye-outline"></ion-icon>
         </ion-item-option>
         <ion-item-option color="success"  (click)="presentAlert('Firmar Documento', 1, documento.id, documento.role)">
           <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>

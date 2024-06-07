@@ -21,9 +21,14 @@ const routes: Routes = [
     path: 'list-institution',
     loadChildren: () => import('./list-institution/list-institution.module').then( m => m.ListInstitutionPageModule),
     pathMatch: 'prefix'
-  },  {
+  },
+  {
     path: 'create-document',
     loadChildren: () => import('./create-document/create-document.module').then( m => m.CreateDocumentPageModule)
+  },
+  {
+    path: 'document-details/:id_documento',
+    loadChildren: () => import('./document-details/document-details.module').then( m => m.DocumentDetailsPageModule)
   },
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentsService } from '../services/documents.service';
+import { Router } from '@angular/router';
 import { ToastController, AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { ToastController, AlertController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  constructor(private toastController: ToastController, private documentservice: DocumentsService, private alertController: AlertController) {}
+  constructor(private router: Router, private toastController: ToastController, private documentservice: DocumentsService, private alertController: AlertController) {}
 
   public documents: any;
   public alertButtons = ['OK'];
@@ -108,5 +109,9 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
     // Este método se ejecuta cada vez que la página está a punto de entrar en la vista
     this.GetDocumentos();
+  }
+
+  detail(id_documento: number) {
+    this.router.navigate(['/document-details', id_documento]);
   }
 }

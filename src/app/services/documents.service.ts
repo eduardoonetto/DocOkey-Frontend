@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { SignDocument } from '../interfaces/interfaces';
+import { SignDocument, Metadata  } from '../interfaces/interfaces';
 
 
 const URL = environment.url;
@@ -36,6 +36,15 @@ export class DocumentsService {
     return this.http.post<SignDocument>(
       `${URL}firmante/firmar`,
       { user_password, tipo_accion, id_documento, role },
+      { headers }
+    );
+  }
+
+  //getMetaDataDocument:
+  getMetaDataDocument(id_documento: number): Observable<Metadata> {
+    const headers = new HttpHeaders().set('Authorization', `${localStorage.getItem('session_id')}`);
+    return this.http.get<Metadata>(
+      `${URL}documento/${id_documento}`,
       { headers }
     );
   }
