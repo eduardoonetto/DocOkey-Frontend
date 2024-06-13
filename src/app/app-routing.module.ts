@@ -9,27 +9,34 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
     pathMatch: 'prefix'
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule),
     pathMatch: 'prefix'
   },
   {
     path: 'list-institution',
-    loadChildren: () => import('./list-institution/list-institution.module').then( m => m.ListInstitutionPageModule),
+    loadChildren: () => import('./list-institution/list-institution.module').then(m => m.ListInstitutionPageModule),
     pathMatch: 'prefix'
   },
   {
     path: 'create-document',
-    loadChildren: () => import('./create-document/create-document.module').then( m => m.CreateDocumentPageModule)
+    loadChildren: () => import('./create-document/create-document.module').then(m => m.CreateDocumentPageModule)
   },
   {
     path: 'document-details/:id_documento',
-    loadChildren: () => import('./document-details/document-details.module').then( m => m.DocumentDetailsPageModule)
+    loadChildren: () => import('./document-details/document-details.module').then(m => m.DocumentDetailsPageModule)
+  },  {
+    path: 'document-signed',
+    loadChildren: () => import('./document-signed/document-signed.module').then( m => m.DocumentSignedPageModule)
   },
+
+
+
+
 
 
 ];

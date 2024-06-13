@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { SignDocument, Metadata  } from '../interfaces/interfaces';
+import { SignDocument, Metadata } from '../interfaces/interfaces';
 
 
 const URL = environment.url;
@@ -32,7 +32,7 @@ export class DocumentsService {
     "role":"admin"
   }*/
   firmarDocumento(user_password: string, tipo_accion: number, id_documento: number, role: string): Observable<SignDocument> {
-        const headers = new HttpHeaders().set('Authorization', `${localStorage.getItem('session_id')}`);
+    const headers = new HttpHeaders().set('Authorization', `${localStorage.getItem('session_id')}`);
     return this.http.post<SignDocument>(
       `${URL}firmante/firmar`,
       { user_password, tipo_accion, id_documento, role },
@@ -48,4 +48,7 @@ export class DocumentsService {
       { headers }
     );
   }
+
+
+
 }

@@ -1,0 +1,18 @@
+<div>
+  <h1>Lista de Documentos Firmados</h1>
+  <p>Esta es la lista de documentos firmados por el usuario.</p>
+  <div *ngIf="documentsSigned.length > 0; else noDocuments">
+    <ul>
+      <li *ngFor="let document of documentsSigned">
+        <h3>{{ document.nombre_documento }}</h3>
+        <p>{{ document.archivo_b64 }}</p>
+        <p>{{ document.institucion_id }}</p>
+        <p>{{ document.fecha_creacion }}</p>
+        <p>Firmado: {{ document.signed }}</p>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noDocuments>
+    <p>No hay documentos firmados disponibles.</p>
+  </ng-template>
+</div>
